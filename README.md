@@ -2,6 +2,8 @@
 
 # AI Automotive Business Assistant
 
+**Live project page:** https://cryptocarouge.github.io/projects/ai-automotive-business-assistant.html
+
 A multimodal business-operations assistant built with n8n, Telegram, OpenAI, Google Sheets and Gotenberg.
 
 The original private workflow was designed around automotive operations. This public edition documents the reusable architecture with no client data, contact details, private document IDs or credentials.
