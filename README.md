@@ -6,6 +6,8 @@ A multimodal business-operations assistant built with n8n, Telegram, OpenAI, Goo
 
 The original private workflow was designed around automotive operations. This public edition documents the reusable architecture with no client data, contact details, private document IDs or credentials.
 
+> **Engineering case study:** [architecture decisions, failure modes and privacy boundary](docs/case-study.md)
+
 ## What it demonstrates
 
 - Telegram-based operational interface
