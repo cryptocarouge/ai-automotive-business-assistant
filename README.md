@@ -1,69 +1,54 @@
+<p align="center"><img src="assets/header.svg" alt="AI Automotive Business Assistant" width="100%"></p>
+
 # AI Automotive Business Assistant
 
 A multimodal business-operations assistant built with n8n, Telegram, OpenAI, Google Sheets and Gotenberg.
 
-The original private workflow was designed around automotive operations. This public edition documents the reusable architecture with no client data, phone numbers, emails, private document IDs or credentials.
+The original private workflow was designed around automotive operations. This public edition documents the reusable architecture with no client data, contact details, private document IDs or credentials.
 
 ## What it demonstrates
 
 - Telegram-based operational interface
 - Text and photo input
 - Vision-assisted document parsing
-- Structured document extraction
+- Structured extraction and customer lookup
 - PDF generation through Gotenberg
-- Customer lookup
-- Data persistence in Google Sheets
+- Google Sheets persistence
 - AI-assisted email drafting
-- Menu and mode routing
+- Menu/mode routing
 - Operational counters and settings
 - Post-document follow-up flows
 
 ## Architecture
 
-```text
-Telegram / Webhook
-       |
-       v
- Normalize Input
-       |
-       v
-      Router
-   /    |     \
-Text  Photo   Menu
- |      |       |
- |    Vision    |
- |      |       |
- +------v-------+
-        |
-   AI / Document Logic
-        |
-        +--> Customer Lookup
-        |
-        +--> PDF Generation
-        |
-        +--> Email Drafting
-        |
-        +--> Data Persistence
-        |
-        v
-   Telegram Response
+```mermaid
+flowchart TD
+    A[Telegram / Webhook] --> B[Normalize Input]
+    B --> C{Router}
+    C --> D[Text]
+    C --> E[Photo]
+    C --> F[Menu]
+    E --> G[Vision]
+    D --> H[AI / Document Logic]
+    G --> H
+    F --> H
+    H --> I[Customer Lookup]
+    H --> J[PDF Generation]
+    H --> K[Email Drafting]
+    H --> L[Data Persistence]
+    I --> M[Telegram Response]
+    J --> M
+    K --> M
+    L --> M
 ```
 
 ## Engineering approach
 
-The assistant separates conversational AI from operational actions. Parsing, routing, data lookup, PDF generation and persistence are explicit workflow stages instead of being hidden inside a single prompt.
+Conversational AI is separated from operational actions. Parsing, routing, data lookup, PDF generation and persistence are explicit stages instead of being hidden inside a single prompt.
 
 ## Security boundary
 
-Not included in this repository:
-
-- Customer names or records
-- Email addresses or phone numbers
-- Live Google Sheet identifiers
-- Telegram chat IDs
-- Webhook endpoints
-- API credentials
-- Production workflow JSON
+Not included: customer records, emails/phone numbers, live Sheet identifiers, chat IDs, private webhook endpoints, API credentials or production workflow JSON.
 
 ## Status
 
