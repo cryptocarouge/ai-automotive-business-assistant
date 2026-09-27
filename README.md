@@ -1,5 +1,8 @@
 <p align="center"><img src="assets/header.svg" alt="AI Automotive Business Assistant" width="100%"></p>
 
+[![Public safety scan](https://github.com/cryptocarouge/ai-automotive-business-assistant/actions/workflows/public-safety.yml/badge.svg)](https://github.com/cryptocarouge/ai-automotive-business-assistant/actions/workflows/public-safety.yml)  
+**Portfolio-safe public edition · production remains private**
+
 # AI Automotive Business Assistant
 
 **Live project page:** https://cryptocarouge.github.io/projects/ai-automotive-business-assistant.html
